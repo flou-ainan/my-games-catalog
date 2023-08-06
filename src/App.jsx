@@ -1,13 +1,19 @@
 import './App.css'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+//import Card from './components/Card'
 
 function App() {
 
   return (
-    <>
-      <h1>My games catalog</h1>
-      <p><a href="https://github.com/flou-ainan/my-games-catalog">Access the project ➡️</a></p>
-      <footer>Made by: <a href="https://github.com/flou-ainan">Flou Ainan</a></footer>
-    </>
+    
+    <div>
+            <Navbar />
+            <Hero />
+            <section className="cards-list">
+               <h1>Cards goes here</h1>
+            </section>
+    </div>
   )
 }
 
