@@ -242,3 +242,44 @@ section {
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(128, 124, 176); 
 }
+
+
+footer {
+  font-family: 'Bebas Neue';
+  padding: 5px;
+  margin: 20px 0px 20px 0px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(156, 148, 208);
+  letter-spacing: 1px;
+  color: white;
+  text-align: center;
+  text-anchor: middle;
+}
+footer > div > a {
+  margin-left: 5px;
+  color: rgb(214, 210, 234)
+}
+.project {
+  padding: 0;
+  margin: 0px;
+  font-size: 12px;
+  margin-top: 6px;
+  margin-bottom: 3px;
+}
+.project:hover {
+  transform: translateY(-2px);
+}
+.project > a {
+  text-decoration: inherit;
+  color: rgb(172, 162, 224);
+  background-color: white;
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+.project > a:hover{
+  color: darkslateblue;
+}

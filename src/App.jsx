@@ -25,6 +25,12 @@ function App() {
             <section className="cards--list">       
               {gamesList}
             </section>
+            <footer>
+              <div className='footer--text'>
+                Made by: <a href="https://github.com/flou-ainan">Flou Ainan</a>
+                <p className='project'><a href="https://github.com/flou-ainan/my-games-catalog/tree/main#my-games-catalog">Acces the project</a> </p>
+              </div>
+            </footer>
     </div>
   )
 }
