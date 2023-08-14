@@ -131,6 +131,31 @@ section {
   color: white;
   margin: 0;
 }
+.card--favorite{
+  position: absolute;
+  left: 130px;
+  top: 180px;
+  border-radius: 50%;
+  background-color: rgba(107, 101, 167, 1);
+  width: 20px;
+  height: 20px;
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-content: center;
+  align-items: center;
+  text-align: justify;
+  padding: 2px;
+}
+.card--favstar{
+  width: 12pt;
+}
+
+.card--favorite:hover{
+  transform: translateY(-2px);
+}
+.card--favorite:active{
+  transform: translateY(-4px);
+}
 
 
 .card--title {

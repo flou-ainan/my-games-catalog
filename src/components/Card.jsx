@@ -1,3 +1,4 @@
+import { useState } from "react"
 export default function Card(props){
 
     
@@ -15,13 +16,21 @@ export default function Card(props){
 
     } */
 
-    let autokey = 0
-    let platforms = game.platforms.map(platform => <span>{platform}</span>)
+    let platforms = game.platforms.map(platform => <span key={platform}>{platform}</span>)
+    const [isFavorite, setIsFavorite] = useState(false)
 
+    function handleClick() {
+        setIsFavorite(prev => !prev)
+    }
+
+    const starState = isFavorite? "filled" : "empty"
     return(
         <div className="card">
             <div className="card--cover">
                 <h3 className="card--badge"> {game.ratting} ⭐</h3>
+                <div onClick={handleClick} className="card--favorite">
+                    <img className="card--favstar"src={`./images/star-${starState}.png`}></img>
+                </div>
                 <img  className="cover-img" src={`./images/games/${game.coverImage}`}/>
             </div>
 
