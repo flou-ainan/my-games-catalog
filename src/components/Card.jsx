@@ -3,7 +3,7 @@ export default function Card(props){
 
     
     let game = props.game
-    
+    let {toggleFav} = props
     /* 
     //  Object Format Example
     const game = {
@@ -17,18 +17,12 @@ export default function Card(props){
     } */
 
     let platforms = game.platforms.map(platform => <span key={platform}>{platform}</span>)
-    const [isFavorite, setIsFavorite] = useState(false)
-
-    function handleClick() {
-        setIsFavorite(prev => !prev)
-    }
-
-    const starState = isFavorite? "filled" : "empty"
+    const starState = game.isFavorite? "filled" : "empty"
     return(
         <div className="card">
             <div className="card--cover">
                 <h3 className="card--badge"> {game.ratting} ⭐</h3>
-                <div onClick={handleClick} className="card--favorite">
+                <div onClick={() => toggleFav(game.id)} className="card--favorite">
                     <img className="card--favstar"src={`./images/star-${starState}.png`}></img>
                 </div>
                 <img  className="cover-img" src={`./images/games/${game.coverImage}`}/>
