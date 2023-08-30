@@ -40,7 +40,7 @@ function App() {
             {isGameAdding && <GameAdd close={closeGameAdd}/>}
             <Navbar />
             <Hero />
-            <button onClick={() => {setIsGameAdding(prev=>!prev)}}>Add a game</button>
+            <button className="add-game-button" onClick={() => setIsGameAdding(true)}>Add a game</button>
             <section className="cards--list">       
               {gamesList}
             </section>
