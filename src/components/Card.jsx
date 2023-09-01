@@ -7,7 +7,7 @@ export default function Card(props){
     /* 
     //  Object Format Example
     const game = {
-        ratting: 4.9,
+        rating: 4.9,
         coverImage: "cover.jpg",
         title: "Castlevania Symphony of the Night",
         platforms: ["Playstation", "Sega Saturn"],
@@ -16,16 +16,21 @@ export default function Card(props){
 
     } */
 
+   // game.rating = game.rating? game.rating : 0
+    
+
     let platforms = game.platforms.map(platform => <span key={platform}>{platform}</span>)
     const starState = game.isFavorite? "filled" : "empty"
+
+    console.log(game.coverImage)
     return(
         <div className="card">
             <div className="card--cover">
-                <h3 className="card--badge"> {game.ratting} ⭐</h3>
+                <h3 className="card--badge"> {game.rating} ⭐</h3>
                 <div onClick={() => toggleFav(game.id)} className="card--favorite">
                     <img className="card--favstar"src={`./images/star-${starState}.png`}></img>
                 </div>
-                <img  className="cover-img" src={`./images/games/${game.coverImage}`}/>
+                <img  className="cover-img" src={`${game.coverImage}`}/>
             </div>
 
             <p className="card--title">{game.title}</p>

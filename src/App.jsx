@@ -9,7 +9,7 @@ import games from "./assets/games-list"
 
 function App() {
   const [gamesData, setGamesData] = useState(games)
-  const [isGameAdding, setIsGameAdding] = useState(true)
+  const [isGameAdding, setIsGameAdding] = useState(false)
 
   function toggleFav(id){
     setGamesData(prevGamesData => {

@@ -108,7 +108,6 @@ section {
   overflow: hidden;
 }
 .card--cover > img {
-  z-index: -1;
   height: 100%;
 }
 
@@ -239,8 +238,8 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  z-index: 10;
+  justify-content: center;
+  z-index: 2;
   margin: 0;
   width: 100%;
   height: 100%;
@@ -249,12 +248,7 @@ section {
   left: 0;
 }
 
-.game-add {
-  margin-top: 100px;
-  border-radius: 10px;
-  background-color: #f1f1f1;
-  padding: 10px;
-}
+
 
 button {
   background-color: rgb(135, 131, 190);
@@ -360,4 +354,43 @@ footer > div > a {
 
 .project > a:hover{
   color: darkslateblue;
+}
+
+/* GAME ADD STYLES */
+
+
+
+.game-add {
+  position: relative;
+  overflow: scroll;
+  border-radius: 10px;
+  background-color: white;
+  padding: 10px;
+  zoom: 1.05;
+}
+.game-add::-webkit-scrollbar {
+  display: none;
+}
+
+
+.range-input {
+  accent-color: darkslateblue;
+}
+.gameadd-cardholder {
+  width: 100%;
+  display: flex;
+  background-color: transparent;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 16px 25px;
+}
+
+
+/* UTILS */
+
+.flex-center {
+  display: flex;
+  align-self: center;
+  justify-self: center;
 }
