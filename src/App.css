@@ -389,6 +389,12 @@ footer > div > a {
 
 /* UTILS */
 
+.space-bet{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .flex-center {
   display: flex;
   align-self: center;

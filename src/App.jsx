@@ -14,10 +14,13 @@ function App() {
   function toggleFav(id){
     setGamesData(prevGamesData => {
       let newGamesData = [...prevGamesData]
-      let game = newGamesData[id-1]
-      game.isFavorite = !game.isFavorite
-      newGamesData[id-1] = game;
-      console.log(game)
+      
+      for (let i = 0; i < newGamesData.length; i++) {
+        if (newGamesData[i].id == id){
+          newGamesData[i] = {...newGamesData[i], isFavorite: !newGamesData[i].isFavorite}
+        }
+      }
+      console.log(id)
       return newGamesData
     })
   }
@@ -33,11 +36,10 @@ function App() {
   function closeGameAdd(){
     setIsGameAdding(false)
   }
-  
   return (
     
     <div>
-            {isGameAdding && <GameAdd close={closeGameAdd}/>}
+            {isGameAdding && <GameAdd close={closeGameAdd} gamesData={gamesData} setGamesData={setGamesData}/>}
             <Navbar />
             <Hero />
             <button className="add-game-button" onClick={() => setIsGameAdding(true)}>Add a game</button>

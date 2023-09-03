@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Card from "./Card"
 export default function GameAdd(props) {
-    const {close} = props
+    const {close, gamesData, setGamesData} = props
     const [newGame, setNewGame] = useState({
         title:"",
         producer:"",
@@ -25,7 +25,7 @@ export default function GameAdd(props) {
 }
     */
     let game = {
-        id: 888,
+        id: gamesData.length+1,
         title: newGame.title,
         rating: newGame.rating,
         coverImage: newGame.coverURL,
@@ -46,11 +46,27 @@ export default function GameAdd(props) {
         )
 
     }
-    function handlePlaformChange(){
-        console.log("platforms changed")
+    function handlePlaformChange(event){
+        let value = event.target.value
+        let platformsArray = value.split(",").map(platform => platform.trim())
+        console.log(platformsArray)
+        setNewGame(
+            (prevGame => ({...prevGame,
+                            platforms:platformsArray
+                            }))
+        )
+    }
+    function addGame(){
+        setGamesData(prevGamesData => {
+            return [game, ...prevGamesData]
+        })
+        close()
     }
 
-    let platforms = ""
+    function toggleFav(){
+        alert("to be implemented")
+    }
+    console.log(game)
     return(
         <div className="modal">
             <div className="game-add">
@@ -58,6 +74,7 @@ export default function GameAdd(props) {
                 <div className="gameadd-cardholder">
                     <Card className="flex-center"
                         game={game}
+                        toggleFav={toggleFav}
                     />
                 </div>
                 <form className="game-add-form">
@@ -92,10 +109,17 @@ export default function GameAdd(props) {
                     <input 
                             name="platforms"
                             type="text"
-                            placeholder="Platform A, Plat B, Plat C"
-                            value={platforms}
+                            placeholder="Platforms"
                             onChange={handlePlaformChange}
-                    /><br />
+                    /> <button 
+                                style={{padding: "-1px 6px"}}
+                                title={"Use comma separete values\nEx: Playstation, Windows, Xbox"}
+                                onClick={(e) => {
+                                    e.preventDefault()
+                                    alert("Use comma separeted values\nEx: Playsation, Windows, Xbox")}
+                                }
+                                ><b>?</b>
+                                </button><br />
                     <input  
                             name="rating"
                             type="range"
@@ -105,7 +129,10 @@ export default function GameAdd(props) {
                             className="range-input"
                     /> <span>{newGame.rating+" ⭐"}</span>
                 </form>
-                <button onClick={close}>Cancel</button>
+                <div className="space-bet">
+                    <button onClick={close}>Cancel</button>
+                    <button onClick={addGame}>Add Game</button>
+                </div>
             </div>
         </div>
     )

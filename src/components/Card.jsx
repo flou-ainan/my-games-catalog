@@ -22,7 +22,7 @@ export default function Card(props){
     let platforms = game.platforms.map(platform => <span key={platform}>{platform}</span>)
     const starState = game.isFavorite? "filled" : "empty"
 
-    console.log(game.coverImage)
+    // console.log(game.id)
     return(
         <div className="card">
             <div className="card--cover">
