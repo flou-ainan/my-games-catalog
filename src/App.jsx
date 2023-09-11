@@ -1,4 +1,4 @@
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import './App.css'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -36,6 +36,18 @@ function App() {
   function closeGameAdd(){
     setIsGameAdding(false)
   }
+
+  function exportData(){
+    const jsonString = JSON.stringify(gamesData,null,2)
+    let blob = new Blob([jsonString],{type:"text/plain"})
+    let url = URL.createObjectURL(blob)
+    const link = document.createElement("a")
+    link.download = "games-data.json"
+
+    link.href = url
+    link.click()
+    URL.revokeObjectURL(url)
+  }
   return (
     
     <div>
@@ -43,6 +55,8 @@ function App() {
             <Navbar />
             <Hero />
             <button className="add-game-button" onClick={() => setIsGameAdding(true)}>Add a game</button>
+            <button className="mg-l-20px" onClick={() => alert("Work in progress")}>Import Data</button> {/* Future Work*/}
+            <button className="mg-l-20px" onClick={exportData}>Export Data</button>
             <section className="cards--list">       
               {gamesList}
             </section>

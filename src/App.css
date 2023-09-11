@@ -400,3 +400,7 @@ footer > div > a {
   align-self: center;
   justify-self: center;
 }
+
+.mg-l-20px{
+  margin-left: 20px;
+}
