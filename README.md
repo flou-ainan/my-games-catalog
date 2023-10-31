@@ -10,4 +10,4 @@ Here are the figma and penpot projects:
 
 <a href="https://flou-ainan.github.io/my-games-catalog/"><b>ACCESS THE CATALOG ➡️<b></a>
 
-![](/public/images/app-web.webp)
+[![](/public/images/app-web.webp)](https://flou-ainan.github.io/my-games-catalog/)
